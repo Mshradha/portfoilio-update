@@ -24,19 +24,39 @@ function EducationCard({ id, institution, course, startYear, endYear }) {
     const classes = useStyles();
 
     return (
-        <Fade bottom>
-            <div key={id} className={`education-card ${classes.educationCard}`} >
-                <div className="educard-img" style={{backgroundColor: theme.primary}}>
-                    <img src={theme.type === 'light' ? eduImgBlack : eduImgWhite} alt="" />
-                </div>
-                <div className="education-details">
-                    <h6 style={{color: theme.primary}}>{startYear}-{endYear}</h6>
-                    <h4 style={{color: theme.tertiary}}>{course}</h4>
-                    <h5 style={{color: theme.tertiary80}}>{institution}</h5>
-                </div>
-            </div>
-        </Fade>        
-    )
+      <Fade bottom>
+        <div key={id} className={`education-card ${classes.educationCard}`}>
+          <div
+            className="educard-img"
+            style={{ backgroundColor: theme.primary }}
+          >
+            <img
+              src={theme.type !== "light" ? eduImgBlack : eduImgWhite}
+              alt=""
+            />
+          </div>
+          <div className="education-details">
+            <h6 style={{ color: "#001f3f" }}>
+              {startYear}-{endYear}
+            </h6>
+            <h4
+              style={{
+                color: theme.type === "light" ? theme.tertiary : "#212121",
+              }}
+            >
+              {course}
+            </h4>
+            <h5
+              style={{
+                color: theme.type === "light" ? theme.tertiary80 : "#212121cc",
+              }}
+            >
+              {institution}
+            </h5>
+          </div>
+        </div>
+      </Fade>
+    );
 }
 
 export default EducationCard

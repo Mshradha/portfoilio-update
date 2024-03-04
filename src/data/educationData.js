@@ -1,22 +1,22 @@
 export const educationData = [
+  // {
+  //   id: 1,
+  //   institution: "MASAI, Bengaluru",
+  //   course: "Full Stack Web Development",
+  //   startYear: "2021",
+  //   endYear: "2022",
+  // },
   {
-    id: 1,
-    institution: "MASAI, Bengaluru",
-    course: "Full Stack Web Development",
-    startYear: "2021",
-    endYear: "2022",
-  },
-  {
-    id:2,
+    id: 2,
     institution: "Government College Of Engineering , Karad",
     course: "M.Tech - Electrical Power System  ",
     startYear: "2019",
-    endYear: "2021"
-
+    endYear: "2021",
   },
   {
     id: 3,
-    institution: "Datta Meghe Institute Of Education, Technolgy & Research,Wardha",
+    institution:
+      "Datta Meghe Institute Of Education, Technolgy & Research,Wardha",
     course: "Bachelor of Engineering - Electrical  ",
     startYear: "2016",
     endYear: "2019",

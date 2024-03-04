@@ -190,9 +190,9 @@ export const navyBlueThemeLight = {
   primary80: "#001f3fcc",
   primary50: "#001f3f80",
   primary30: "#001f3f4d",
-  secondary: "#EAEAEA",
-  secondary70: "#EAEAEAb3",
-  secondary50: "#EAEAEA80",
+  secondary: "#8FB7D5", // Replace with pastel blue
+  secondary70: "#8FB7D5b3",
+  secondary50: "#8FB7D580",
   tertiary: "#212121",
   tertiary80: "#212121cc",
   tertiary70: "#212121b3",
@@ -203,17 +203,18 @@ export const navyBlueThemeLight = {
   expimg: expBlue,
   contactsimg: contactsBlue,
 };
+
 export const navyBlueThemeDark = {
   type: "dark",
-  primary: "#001f3f",
-  primary400: "#003366",
-  primary600: "#00509e",
-  primary80: "#001f3fcc",
-  primary50: "#001f3f80",
-  primary30: "#001f3f4d",
-  secondary: "#212121",
-  secondary70: "#212121b3",
-  secondary50: "#21212180",
+  primary: "#8FB7D5", // Pastel blue color
+  primary400: "#6C9BBF", // Adjusted shade
+  primary600: "#547DA3", // Adjusted shade
+  primary80: "#B3CBE2", // Adjusted shade
+  primary50: "#A1B9CF", // Adjusted shade
+  primary30: "#90A8BD", // Adjusted shade
+  secondary: "#02305F",
+  secondary70: "#02305Fb3",
+  secondary50: "#02305F80",
   tertiary: "#eaeaea",
   tertiary80: "#eaeaeacc",
   tertiary70: "#eaeaeab3",

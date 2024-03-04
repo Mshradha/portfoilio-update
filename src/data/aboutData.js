@@ -1,7 +1,7 @@
 export const aboutData = {
-  title: "Who I am",
-  description1: "Full Stack Web Developer",
+  title: "Hi, I'm Shradha",
+  description1: "Full Stack Developer",
   description2:
-    "Right now I have finished my Full Stack Web Development cousre from Masai School, Bengaluru. I love to learn and explore new areas. I am proficient in MERN stack and eager to learn and ready to contribute to the development of an organization.",
+    "Experienced Software Developer with a strong ability to design and implement efficient solutions . Skilled in front-end and back-end development , with experience in various technologies used to build and maintain web applications. Passionate about creating user-friendly and impactful software .",
   image: 1,
 };

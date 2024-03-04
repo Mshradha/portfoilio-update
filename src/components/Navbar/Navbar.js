@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
 import Fade from "react-reveal/Fade";
 import { IoMenuSharp, IoHomeSharp } from "react-icons/io5";
-// import { HiDocumentText } from "react-icons/hi";
+import { HiDocumentText } from "react-icons/hi";
+import { PiSuitcaseSimpleFill } from "react-icons/pi";
 import { BsFillGearFill } from "react-icons/bs";
 import { MdPhone } from "react-icons/md";
 import { FaTools } from "react-icons/fa";
@@ -84,7 +85,7 @@ function Navbar() {
       borderRadius: "78.8418px",
       background: theme.secondary,
       color: theme.primary,
-      width: "85%",
+      width: "95%",
       height: "60px",
       display: "flex",
       alignItems: "center",
@@ -205,7 +206,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            {/* <Fade left>
+            <Fade left>
               <NavLink to="/#resume" smooth={true} spy="true" duration={2000}>
                 <div className={classes.drawerItem}>
                   <HiDocumentText className={classes.drawerIcon} />
@@ -215,7 +216,7 @@ function Navbar() {
                       e.preventDefault();
 
                       window.open(
-                        "https://drive.google.com/file/d/1MHFoRv2KB3dpfOxIGYpXqszpDkd5HOJO/view?usp=sharing",
+                        "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
                         "_blank"
                       );
                     }}
@@ -225,7 +226,20 @@ function Navbar() {
                   </span>
                 </div>
               </NavLink>
-            </Fade> */}
+            </Fade>
+            <Fade left>
+              <NavLink
+                to="/#expirence"
+                smooth={true}
+                spy="true"
+                duration={2000}
+              >
+                <div className={classes.drawerItem}>
+                  <PiSuitcaseSimpleFill className={classes.drawerIcon} />
+                  <span className={classes.drawerLinks}>Experience</span>
+                </div>
+              </NavLink>
+            </Fade>
 
             <Fade left>
               <NavLink to="/#projects" smooth={true} spy="true" duration={2000}>

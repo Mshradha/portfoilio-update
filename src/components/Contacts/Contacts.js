@@ -169,8 +169,8 @@ function Contacts() {
       <div className="contacts--container">
         <h1 style={{ color: theme.primary }}>Contacts</h1>
         <div className="contacts-body">
-          <div className="contacts-form">
-            <form onSubmit={handleContactForm}>
+          {/* <div className="contacts-form"> */}
+          {/* <form onSubmit={handleContactForm}>
               <div className="input-container">
                 <label htmlFor="Name" className={classes.label}>
                   Name
@@ -234,8 +234,8 @@ function Contacts() {
                   </div>
                 </button>
               </div>
-            </form>
-            <Snackbar
+            </form> */}
+          {/* <Snackbar
               anchorOrigin={{
                 vertical: "top",
                 horizontal: "center",
@@ -265,7 +265,7 @@ function Contacts() {
                 message={errMsg}
               />
             </Snackbar>
-          </div>
+          </div> */}
 
           <div className="contacts-details">
             <a

@@ -1,6 +1,6 @@
 export const socialsData = {
   github: "https://github.com/Mshradha",
-  linkedIn: "https://www.linkedin.com/in/shradha-mishra-3b967914b/",
+  linkedIn: "https://www.linkedin.com/in/shradhamishra24/",
   instagram: "https://www.instagram.com/06_shradha/",
   // codepen: "https://codepen.io/rcyou/pen/QEObEZ",
   twitter: "https://twitter.com/Shradha52031876",
@@ -9,5 +9,5 @@ export const socialsData = {
   // gitlab: "https://gitlab.com/",
   // youtube: "https://youtube.com/",
   resume:
-    "https://drive.google.com/file/d/1CQ2WrUZ1pCXqTcRk-2k5E_tzHGyFdOFn/view",
+    "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
 };

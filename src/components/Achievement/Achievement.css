@@ -44,7 +44,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    height: 170px;
+    height: 140px;
     padding: 1.5rem;
     border-radius: 20px;
     margin-bottom: 1.5rem;
@@ -59,7 +59,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
-    width: 65%;
+    width: 80%;
    
 }
 
@@ -95,10 +95,10 @@
     font-weight: 500;
     font-size: 1.225rem;
     line-height: 110%;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
-.achievecard-details1 p {
+.achievecard-details1 h5 {
     font-size: 1.10rem;
     font-family: Roboto;
     font-weight: 400;
