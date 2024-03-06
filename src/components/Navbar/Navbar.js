@@ -207,25 +207,25 @@ function Navbar() {
             </Fade>
 
             <Fade left>
-              <NavLink to="/#resume" smooth={true} spy="true" duration={2000}>
-                <div className={classes.drawerItem}>
-                  <HiDocumentText className={classes.drawerIcon} />
-                  <span
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
+              {/* <NavLink to="" smooth={true} spy="true" duration={2000}> */}
+              <div className={classes.drawerItem}>
+                <HiDocumentText className={classes.drawerIcon} />
+                <span
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
 
-                      window.open(
-                        "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
-                        "_blank"
-                      );
-                    }}
-                    className={classes.drawerLinks}
-                  >
-                    Resume
-                  </span>
-                </div>
-              </NavLink>
+                    window.open(
+                      "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
+                      "_blank"
+                    );
+                  }}
+                  className={classes.drawerLinks}
+                >
+                  Resume
+                </span>
+              </div>
+              {/* </NavLink> */}
             </Fade>
             <Fade left>
               <NavLink
