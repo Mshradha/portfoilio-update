@@ -229,7 +229,7 @@ function Navbar() {
             </Fade>
             <Fade left>
               <NavLink
-                to="/#expirence"
+                to="/#experience"
                 smooth={true}
                 spy="true"
                 duration={2000}

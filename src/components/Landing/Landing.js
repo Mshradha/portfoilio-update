@@ -137,7 +137,7 @@ function Landing() {
                       // e.preventDefault();
 
                       window.open(
-                        "https://drive.google.com/file/d/1CQ2WrUZ1pCXqTcRk-2k5E_tzHGyFdOFn/view"
+                        "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing"
                       );
                     }}
                     className={classes.resumeBtn}
