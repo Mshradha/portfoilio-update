@@ -15,30 +15,30 @@ function Projects() {
 
     
     const useStyles = makeStyles(() => ({
-        viewAllBtn : {
-            color: theme.tertiary, 
-            backgroundColor: theme.primary,
-            transition: 'color 0.2s',
-            "&:hover": {
-                color: theme.secondary, 
-                backgroundColor: theme.primary,
-            }
+      viewAllBtn: {
+        color: theme.type === "light" ? theme.tertiary : "#212121",
+        backgroundColor: theme.primary50,
+        transition: "color 0.2s",
+        "&:hover": {
+          color: theme.secondary,
+          backgroundColor: theme.primary,
         },
-        viewArr : {
-            color: theme.tertiary, 
-            backgroundColor: theme.secondary70,
-            width: '40px',
-            height: '40px',
-            padding: '0.5rem',
-            fontSize: '1.05rem',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            transition: 'background-color 0.2s',
-            "&:hover": {
-                color: theme.tertiary, 
-                backgroundColor: theme.secondary,
-            }
+      },
+      viewArr: {
+        color: theme.type === "light" ? theme.tertiary : "#212121",
+        backgroundColor: theme.secondary70,
+        width: "40px",
+        height: "40px",
+        padding: "0.5rem",
+        fontSize: "1.05rem",
+        borderRadius: "50%",
+        cursor: "pointer",
+        transition: "background-color 0.2s",
+        "&:hover": {
+          color: theme.tertiary,
+          backgroundColor: theme.secondary,
         },
+      },
     }));
 
     const classes = useStyles();
