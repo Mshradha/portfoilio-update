@@ -27,10 +27,20 @@ function AchievementCard({ id, title, details, date, field, image }) {
       <div key={id} className={`achievement-card ${classes.achievementCard}`}>
         <div className="achievecard-content">
           <div className="achievecard-details1">
-            <h2 style={{ color: theme.tertiary }}>
+            <h2
+              style={{
+                color: theme.type === "light" ? theme.tertiary : "#212121",
+              }}
+            >
               <MdOutlineDoubleArrow style={{ marginRight: "2px" }} /> {title}
             </h2>
-            <h5 style={{ color: theme.primary }}>{date}</h5>
+            <h5
+              style={{
+                color: theme.type === "light" ? theme.primary : "#212121",
+              }}
+            >
+              {date}
+            </h5>
             {/* <p style={{ color: theme.tertiary80 }}>{details}</p> */}
           </div>
           {/* <div
