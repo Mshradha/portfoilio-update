@@ -9,5 +9,5 @@ export const socialsData = {
   // gitlab: "https://gitlab.com/",
   // youtube: "https://youtube.com/",
   resume:
-    "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
+    "https://drive.google.com/file/d/1CEluVxAqEEiE9KgTv-XLmg1tLgm1nKVi/view?usp=sharing",
 };

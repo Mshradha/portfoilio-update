@@ -13,12 +13,12 @@ function EducationCard({ id, institution, course, startYear, endYear }) {
     const { theme } = useContext(ThemeContext);
 
     const useStyles = makeStyles((t) => ({
-        educationCard : {
-            backgroundColor:theme.primary30,
-            "&:hover": {
-                backgroundColor:theme.primary50,
-            },
+      educationCard: {
+        backgroundColor: theme.primary,
+        "&:hover": {
+          backgroundColor: "black",
         },
+      },
     }));
 
     const classes = useStyles();
@@ -28,31 +28,31 @@ function EducationCard({ id, institution, course, startYear, endYear }) {
         <div key={id} className={`education-card ${classes.educationCard}`}>
           <div
             className="educard-img"
-            style={{ backgroundColor: theme.primary }}
+            style={{ backgroundColor: theme.secondary }}
           >
             <img
-              src={theme.type !== "light" ? eduImgBlack : eduImgWhite}
+              src={theme.type !== "light" ? eduImgBlack : eduImgBlack}
               alt=""
             />
           </div>
           <div className="education-details">
-            <h6 style={{ color: "#001f3f" }}>
+            <h6 style={{ color: "white" }}>
               {startYear}-{endYear}
             </h6>
-            <h4
+            <h5
               style={{
-                color: theme.type === "light" ? theme.tertiary : "#212121",
+                color: theme.type === "light" ? theme.secondary : "#212121",
               }}
             >
               {course}
-            </h4>
-            <h5
+            </h5>
+            <p
               style={{
-                color: theme.type === "light" ? theme.tertiary80 : "#212121cc",
+                color: theme.type === "light" ? theme.secondary : "#212121cc",
               }}
             >
               {institution}
-            </h5>
+            </p>
           </div>
         </div>
       </Fade>

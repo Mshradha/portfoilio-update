@@ -21,9 +21,9 @@ function ExperienceCard({
 
   const useStyles = makeStyles((t) => ({
     experienceCard: {
-      backgroundColor: theme.primary30,
+      backgroundColor: theme.primary,
       "&:hover": {
-        backgroundColor: theme.primary50,
+        backgroundColor: theme.primary80,
       },
     },
   }));
@@ -35,34 +35,34 @@ function ExperienceCard({
       <div key={id} className={`experience-card ${classes.experienceCard}`}>
         <div
           className="expcard-img"
-          style={{ backgroundColor: theme.primary400 }}
+          style={{ backgroundColor: theme.secondary }}
         >
           <img
-            src={theme.type !== "light" ? expImgBlack : expImgWhite}
+            src={theme.type !== "light" ? expImgWhite : expImgBlack}
             alt=""
           />
         </div>
         <div className="experience-details">
-          <h6 style={{ color: "#001f3f" }}>
+          <h6 style={{ color: "white" }}>
             {startYear}-{endYear}
           </h6>
           <h4
             style={{
-              color: theme.type === "light" ? theme.tertiary : "#212121",
+              color: theme.type === "light" ? theme.secondary : "#212121",
             }}
           >
             {jobtitle}
           </h4>
           <h5
             style={{
-              color: theme.type === "light" ? theme.tertiary80 : "#212121cc",
+              color: theme.type === "light" ? theme.secondary : "#212121cc",
             }}
           >
             {company}
           </h5>
           {discription.map((ele) => {
             return (
-              <ul key={ele.id}>
+              <ul key={ele.id} style={{ color: "whitesmoke" }}>
                 <li>{ele.task}</li>
               </ul>
             );

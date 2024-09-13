@@ -73,14 +73,14 @@ function Landing() {
       <div className="landing--container">
         <div
           className="landing--container-left"
-          style={{ backgroundColor: theme.primary }}
+          style={{ backgroundColor: theme.secondary }}
         >
           <div className="lcl--content">
             {socialsData.linkedIn && (
               <a href={socialsData.linkedIn} target="_blank" rel="noreferrer">
                 <FaLinkedin
                   className="landing--social"
-                  style={{ color: theme.secondary }}
+                  style={{ color: theme.primary }}
                   aria-label="LinkedIn"
                 />
               </a>
@@ -89,7 +89,7 @@ function Landing() {
               <a href={socialsData.github} target="_blank" rel="noreferrer">
                 <FaGithub
                   className="landing--social"
-                  style={{ color: theme.secondary }}
+                  style={{ color: theme.primary }}
                   aria-label="GitHub"
                 />
               </a>
@@ -98,12 +98,11 @@ function Landing() {
               <a href={socialsData.twitter} target="_blank" rel="noreferrer">
                 <FaTwitter
                   className="landing--social"
-                  style={{ color: theme.secondary }}
+                  style={{ color: theme.primary }}
                   aria-label="Twitter"
                 />
               </a>
             )}
-           
           </div>
         </div>
         <img
@@ -137,7 +136,7 @@ function Landing() {
                       // e.preventDefault();
 
                       window.open(
-                        "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing"
+                        "https://drive.google.com/file/d/1CEluVxAqEEiE9KgTv-XLmg1tLgm1nKVi/view?usp=sharing"
                       );
                     }}
                     className={classes.resumeBtn}

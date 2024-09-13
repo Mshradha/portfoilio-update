@@ -36,25 +36,25 @@ export const experienceData = [
       },
     ],
   },
-  {
-    id: 2,
-    company: "Masai School",
-    jobtitle: "Full Stack Web Developer (Trainee)",
-    startYear: "December 2021",
-    endYear: "October 2022",
-    discription: [
-      {
-        id: 21,
-        task: "Learned full-stack web development expertise (front-end: HTML, CSS, JavaScript, React; back-end: Node.js, Express.js, MongoDB) to develop comprehensive solutions.",
-      },
-      {
-        id: 22,
-        task: "Identified and solved real-world coding issues, contributing to a 20% increase in overall coding efficiency.",
-      },
-      {
-        id: 23,
-        task: "Collaborated effectively within a team, creating a productive development environment and achieving a combined 15% improvement in both team efficiency and project delivery timelines.",
-      },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   company: "Masai School",
+  //   jobtitle: "Full Stack Web Developer (Trainee)",
+  //   startYear: "December 2021",
+  //   endYear: "October 2022",
+  //   discription: [
+  //     {
+  //       id: 21,
+  //       task: "Learned full-stack web development expertise (front-end: HTML, CSS, JavaScript, React; back-end: Node.js, Express.js, MongoDB) to develop comprehensive solutions.",
+  //     },
+  //     {
+  //       id: 22,
+  //       task: "Identified and solved real-world coding issues, contributing to a 20% increase in overall coding efficiency.",
+  //     },
+  //     {
+  //       id: 23,
+  //       task: "Collaborated effectively within a team, creating a productive development environment and achieving a combined 15% improvement in both team efficiency and project delivery timelines.",
+  //     },
+  //   ],
+  // },
 ];

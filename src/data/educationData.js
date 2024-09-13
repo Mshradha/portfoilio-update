@@ -1,11 +1,11 @@
 export const educationData = [
-  // {
-  //   id: 1,
-  //   institution: "MASAI, Bengaluru",
-  //   course: "Full Stack Web Development",
-  //   startYear: "2021",
-  //   endYear: "2022",
-  // },
+  {
+    id: 1,
+    institution: "Masai School, Bengaluru",
+    course: "Full Stack Web Development",
+    startYear: "2021",
+    endYear: "2022",
+  },
   {
     id: 2,
     institution: "Government College Of Engineering , Karad",
