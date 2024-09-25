@@ -56,7 +56,7 @@ export const projectsData = [
       "This is a full-fledged clone of website Bath & Body Works, we have tried to implement every possible feature of the website and provided the full payment cycle with login and signup authoristaion",
     tags: ["JavaScript", "CSS", "Bootstrap", "HTML"],
     code: "https://github.com/Mshradha/ProjectUnit3-Bath-Body.git",
-    demo: "https://beamish-palmier-e5b41f.netlify.app/",
+    // demo: "https://beamish-palmier-e5b41f.netlify.app/",
     image: beauty_image,
   },
   {
@@ -66,7 +66,7 @@ export const projectsData = [
       "This is a mini clone of website myntra, I have tried to implement the website product page  with login and signup authoristaion",
     tags: ["React", "JavaScript", "CSS", "ChakraUI", "HTML"],
     code: "https://github.com/masai-course/shradha_fw16_237/tree/master/ProjectReact/ecommerce",
-    demo: "https://shradhaecomm.vercel.app/",
+    // demo: "https://shradhaecomm.vercel.app/",
     image: mini,
   },
 
@@ -77,7 +77,7 @@ export const projectsData = [
       "It is a  functional html css model of website TomTop just with login functionality, I have implemented css with great precision and the website  responsive.",
     tags: ["JavaScript", "CSS", "Bootstrap", "HTML"],
     code: "https://github.com/Mshradha/construct-week",
-    demo: "https://tomtopclone.netlify.app/",
+    // demo: "https://tomtopclone.netlify.app/",
     image: adidas_image,
   },
   {
@@ -87,7 +87,7 @@ export const projectsData = [
       "Shopping application landing page with login and create account options.It is  simple designed with Transitions,  Sliders and videos",
     tags: ["HTML", "CSS", "JavaScript"],
     code: "https://github.com/Mshradha/sephora.git",
-    demo: "https://sephoraclone17.netlify.app/",
+    // demo: "https://sephoraclone17.netlify.app/",
     image: bankmanLanding_image,
   },
   // {
