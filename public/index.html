@@ -2,55 +2,90 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Shradha Mishra Portfolio Website" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
+    <!-- Set the theme before first paint so there is no light/dark flash. -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var theme = 'light';
+        try {
+          var stored = localStorage.getItem('sm-theme');
+          if (stored === 'light' || stored === 'dark') {
+            theme = stored;
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark';
+          }
+        } catch (e) {}
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+        root.classList.add('js');
+      })();
+    </script>
 
+    <title>Shradha Mishra — Software Engineer, Frontend &amp; Full Stack</title>
     <meta
+      data-react-helmet="true"
       name="description"
-      content="Portfolio of Shradha Mishra from Yavatmal,Maharashtra. Full Stack Web developer based from Chandigarh. Fluent in MERN stack devlopment. Ready to contribute and work , also up for freelancing."
+      content="Shradha Mishra is a full stack software engineer with a frontend focus, building web applications, Contentstack marketplace integrations for DAM and video platforms, and developer tooling with React, TypeScript and Node.js."
     />
+    <link data-react-helmet="true" rel="canonical" href="https://shradha-mishra-portfolio.vercel.app/" />
+    <meta name="theme-color" content="#F8F5EF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#10131B" media="(prefers-color-scheme: dark)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shradha Mishra" />
+    <meta data-react-helmet="true" property="og:title" content="Shradha Mishra — Software Engineer" />
     <meta
-      property="og:image"
-      content="http ://avatars.githubusercontent.com/u/96873348?v=4"
-    />
-    <!-- <meta property="og:site_name" content="anmoljain987.vercel.app" /> -->
-    <meta property="og:title" content="Shradha Mishra Portfolio" />
-    <meta property="og:url" content="https://anmoljain987.d/" />
-    <meta property="og:type" content="www.instagram.com/llanmoljainll" />
-    <meta
+      data-react-helmet="true"
       property="og:description"
-      content="Portfolio of Shradha Mishra from Yavatmal,Maharashtra . Full Stack Web developer . Fluent in MERN stack devlopment. Ready to contribute and work , also up for freelancing."
+      content="Full stack software engineer with a frontend focus. Marketplace integrations, reusable frontend architecture, and thoughtful engineering."
     />
-
-    <meta itemprop="name" content="Shradha Mishra" />
-    <meta itemprop="url" content="https://anmoljain987.vercel.app/" />
+    <meta data-react-helmet="true" property="og:url" content="https://shradha-mishra-portfolio.vercel.app/" />
+    <meta property="og:image" content="https://shradha-mishra-portfolio.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Shradha Mishra — I turn complex ideas into software that feels effortless." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta data-react-helmet="true" name="twitter:title" content="Shradha Mishra — Software Engineer" />
     <meta
-      itemprop="description"
-      content="Portfolio of Shradha Mishra from Yavatmal,Maharashtra . Full Stack Web developer based from Chandigarh. Fluent in MERN stack devlopment. Ready to contribute and work , also up for freelancing."
-    />
-    <meta itemprop="thumbnailUrl" content="" />
-
-    <meta name="twitter:url" content="https://www.twitter.com/anmoljain987" />
-    <meta name="twitter:title" content="Shradha Mishra Portfolio" />
-    <meta
+      data-react-helmet="true"
       name="twitter:description"
-      content="Portfolio of Shradha Mishra from Yavatmal,Maharashtra  . Full Stack Web developer based from Chandigarh. Fluent in MERN stack devlopment. Ready to contribute and work , also up for freelancing"
+      content="Full stack software engineer with a frontend focus. Marketplace integrations, reusable frontend architecture, and thoughtful engineering."
     />
-    <meta
-      name="twitter:card"
-      content="Portfolio of Shradha Mishra from Yavatmal,Maharashtra . Full Stack Web developer based from Chandigarh. Fluent in MERN stack devlopment. Ready to contribute and work , also up for freelancing"
+    <meta name="twitter:image" content="https://shradha-mishra-portfolio.vercel.app/og-image.png" />
+
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap"
     />
 
-    <title>Shradha Mishra- Portfolio </title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shradha Mishra",
+        "jobTitle": "Software Engineer",
+        "url": "https://shradha-mishra-portfolio.vercel.app/",
+        "sameAs": ["https://github.com/Mshradha", "https://www.linkedin.com/in/shradhamishra24/"],
+        "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" }
+      }
+    </script>
   </head>
   <body>
-    <!-- <noscript>You need to enable JavaScript to run this app.</noscript> -->
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">
+        This site needs JavaScript. You can reach Shradha at
+        <a href="mailto:shradhamishra2224@gmail.com">shradhamishra2224@gmail.com</a>.
+      </p>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

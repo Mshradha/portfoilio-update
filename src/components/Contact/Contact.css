@@ -1,0 +1,155 @@
+/* The section above already ends with its own bottom padding. */
+.contact {
+  padding-block: 0 clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.contact__panel {
+  position: relative;
+  padding: clamp(2.5rem, 1.5rem + 5vw, 6rem) clamp(1.5rem, 1rem + 4vw, 5rem);
+  border-radius: clamp(14px, 1vw + 10px, 24px);
+  background: var(--color-feature-bg);
+  color: var(--color-feature-text);
+  overflow: hidden;
+}
+
+/* Thin concentric rings: a quiet echo of the integration diagram. */
+.contact__rings {
+  position: absolute;
+  right: -160px;
+  bottom: -200px;
+  width: 560px;
+  height: 560px;
+  color: var(--color-feature-border);
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .contact__rings {
+    right: -260px;
+    bottom: -300px;
+  }
+}
+
+.contact__panel :focus-visible {
+  outline-color: var(--color-feature-accent);
+}
+
+.contact__eyebrow {
+  color: var(--color-feature-muted);
+}
+
+.contact__title {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-5);
+  max-width: 19ch;
+  text-wrap: balance;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 1.4rem + 4.2vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.contact__title em {
+  color: var(--color-feature-accent);
+}
+
+.contact__lede {
+  position: relative;
+  z-index: 1;
+  max-width: 52ch;
+  margin-top: var(--space-5);
+  font-size: var(--text-lg);
+  color: var(--color-feature-muted);
+}
+
+.contact__email-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-7);
+}
+
+.contact__email {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 0.9rem + 1.8vw, 2.25rem);
+  line-height: 1.2;
+  color: var(--color-feature-text);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  background-image: linear-gradient(var(--color-feature-accent), var(--color-feature-accent));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: color var(--dur-fast) ease, background-size var(--dur-med) var(--ease-out);
+}
+
+.contact__email:hover {
+  color: var(--color-feature-accent);
+}
+
+.contact__copy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-feature-border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-feature-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) ease;
+}
+
+.contact__copy:hover {
+  border-color: var(--color-feature-muted);
+}
+
+.contact__links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-feature-border);
+}
+
+.contact__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--color-feature-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--dur-fast) ease;
+}
+
+.contact__links a:hover {
+  color: var(--color-feature-accent);
+}
+
+.contact__links svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact__links .contact__ext {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.contact__links a:hover .contact__ext {
+  transform: translate(2px, -2px);
+}

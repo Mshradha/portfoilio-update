@@ -1,0 +1,319 @@
+.cs-hero {
+  padding-top: clamp(2rem, 1rem + 3vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.cs-back:hover {
+  color: var(--color-text);
+}
+
+.cs-back svg {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.cs-back:hover svg {
+  transform: translateX(-3px);
+}
+
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.cs-meta span:first-child {
+  color: var(--color-accent);
+}
+
+.cs-title {
+  margin-top: var(--space-4);
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.cs-lede {
+  margin-top: var(--space-5);
+  max-width: 58ch;
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.cs-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) clamp(2rem, 1rem + 4vw, 4rem);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-facts > * {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.cs-facts__label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.cs-highlight {
+  font-weight: 600;
+}
+
+.cs-visual {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.cs-visual .pv {
+  min-height: clamp(280px, 30vw, 420px);
+}
+
+.cs-visual .pv__stage {
+  max-width: 520px;
+}
+
+/* Body layout */
+
+.cs-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-7);
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+}
+
+@media (min-width: 1024px) {
+  .cs-layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: clamp(3rem, 2rem + 4vw, 6rem);
+  }
+
+  .cs-aside {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+    align-self: start;
+  }
+}
+
+.cs-aside {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.cs-toc ol {
+  margin: var(--space-3) 0 0;
+  border-left: 1px solid var(--color-border);
+}
+
+.cs-toc a {
+  display: block;
+  padding: 0.35rem 0 0.35rem var(--space-4);
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.cs-toc a:hover {
+  color: var(--color-text);
+  border-left-color: var(--color-accent);
+}
+
+@media (max-width: 1023px) {
+  .cs-toc {
+    display: none;
+  }
+}
+
+.cs-stack .tag-list {
+  margin-top: var(--space-3);
+}
+
+.cs-body {
+  max-width: 720px;
+}
+
+.cs-section {
+  padding-bottom: var(--space-7);
+}
+
+.cs-section + .cs-section {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-section__title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-xl);
+  line-height: 1.15;
+}
+
+.cs-section__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+}
+
+.cs-section__body {
+  margin-top: var(--space-4);
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
+}
+
+.cs-list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-list li {
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+.cs-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 10px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.cs-decisions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .cs-decisions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.cs-decision {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.cs-decision h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+
+.cs-decision p {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.cs-challenges {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.cs-challenges dt {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.cs-challenges dd {
+  margin-top: var(--space-1);
+}
+
+.cs-outcomes {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-outcomes li {
+  padding: var(--space-4) var(--space-5);
+  border-left: 2px solid var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.cs-note {
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.cs-next {
+  display: grid;
+  gap: var(--space-2);
+  margin-block: var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.cs-next__title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1.05;
+}
+
+.cs-next__title svg {
+  flex-shrink: 0;
+  width: 0.7em;
+  height: 0.7em;
+  color: var(--color-accent);
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.cs-next:hover .cs-next__title svg {
+  transform: translateX(6px);
+}

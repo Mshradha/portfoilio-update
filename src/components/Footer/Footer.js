@@ -1,32 +1,27 @@
-import React, { useContext } from 'react'
-import './Footer.css'
-import { ThemeContext } from '../../contexts/ThemeContext'
-import { headerData } from '../../data/headerData'
+import React from 'react';
+import { FiArrowUp } from 'react-icons/fi';
+
+import { site } from '../../data/site';
+import './Footer.css';
 
 function Footer() {
+  const year = new Date().getFullYear();
 
-    const shortname = (name) => {
-        if(name.length > 10) {
-            return name.split(" ")[0]
-        } else {
-            return name
-        }
-    }
-
-    const { theme }  = useContext(ThemeContext)
-
-    return (
-        <div className="footer" style={{backgroundColor: theme.secondary}}>
-            <p style={{color: theme.tertiary}}>
-                Made with  
-                <span style={{color: theme.primary, margin: '0 0.5rem -1rem 0.5rem'}}>
-                    ❤
-                </span>
-                 by {shortname(headerData.name)}
-            </p>
-        </div>
-    )
+  return (
+    <footer className="site-footer">
+      <div className="container site-footer__inner">
+        <p className="site-footer__mark" aria-hidden="true">
+          SM<span>.</span>
+        </p>
+        <p className="site-footer__copy">
+          © {year} {site.name}. Designed and built with React.
+        </p>
+        <a className="site-footer__top" href="#top">
+          Back to top <FiArrowUp aria-hidden="true" />
+        </a>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
-
+export default Footer;
