@@ -1,253 +1,160 @@
-import React, { useState, useContext } from "react";
-import { NavHashLink as NavLink } from "react-router-hash-link";
-import { IoHomeSharp } from "react-icons/io5";
-import { HiDocumentText } from "react-icons/hi";
-import { PiSuitcaseSimpleFill } from "react-icons/pi";
-import { BsFillGearFill } from "react-icons/bs";
-import { MdPhone } from "react-icons/md";
-import { FaTools, FaUser, FaBars } from "react-icons/fa";
-import { makeStyles } from "@material-ui/core/styles";
-import { Drawer, IconButton } from "@material-ui/core";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi';
 
-import "./Navbar.css";
-import { headerData } from "../../data/headerData";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import { navLinks, site } from '../../data/site';
+import './Navbar.css';
+
+const useScrolled = (offset = 12) => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > offset);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [offset]);
+  return scrolled;
+};
+
+// Highlights the nav item for the section currently in view (home page only).
+const useActiveSection = (enabled) => {
+  const [active, setActive] = useState('');
+  useEffect(() => {
+    if (!enabled || !('IntersectionObserver' in window)) return undefined;
+    // The hero is observed too, so nothing is highlighted while it is in view.
+    const sections = ['intro', ...navLinks.map(({ id }) => id)]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+    sections.forEach((section) => io.observe(section));
+    return () => io.disconnect();
+  }, [enabled]);
+  return enabled ? active : '';
+};
 
 function Navbar() {
-  const { theme } = useContext(ThemeContext);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+  const scrolled = useScrolled();
+  const active = useActiveSection(isHome);
+  const [open, setOpen] = useState(false);
+  const toggleRef = useRef(null);
+  const panelRef = useRef(null);
 
-  const useStyles = makeStyles((t) => ({
-    navbarContainer: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      width: "100%",
-      padding: "10px 20px",
-      backgroundColor: theme.primary,
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      zIndex: 1000,
-      boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-      [t.breakpoints.down("sm")]: {
-        justifyContent: "space-between",
-      },
-    },
-    navLinksContainer: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flex: 1,
-      [t.breakpoints.down("sm")]: {
-        display: "none", // Hide links on smaller screens
-      },
-    },
-    navItem: {
-      display: "flex",
-      alignItems: "center",
-      margin: "0 20px",
-      color: theme.secondary,
-      fontSize: "1.2rem",
-      textDecoration: "none",
-      transition: "color 0.3s",
-      "&:hover": {
-        color: "white",
-      },
-    },
-    navIcon: {
-      marginRight: "8px",
-    },
-    name: {
-      color: theme.primary,
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-    },
-    menuIcon: {
-      display: "none",
-      [t.breakpoints.down("sm")]: {
-        display: "block", // Show menu icon on smaller screens
-        color: theme.secondary,
-        fontSize: "2rem",
-      },
-    },
-    drawerLinks: {
-      width: "250px",
-      padding: "20px",
-      backgroundColor: theme.secondary,
-      height: "100%",
-      display: "flex",
-      flexDirection: "column",
-    },
-    drawerItem: {
-      margin: "20px 0",
-      color: theme.primary,
-      fontSize: "1.2rem",
-      fontWeight: "bold",
-      textDecoration: "none",
-      display: "flex",
-      alignItems: "center",
-      "&:hover": {
-        color: theme.tertiary,
-      },
-    },
-  }));
+  const close = useCallback(() => setOpen(false), []);
 
-  const classes = useStyles();
+  useEffect(() => {
+    close();
+  }, [pathname, close]);
 
-  const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
-  };
+  useEffect(() => {
+    if (!open) return undefined;
+    document.body.style.overflow = 'hidden';
+    const firstLink = panelRef.current && panelRef.current.querySelector('a');
+    if (firstLink) firstLink.focus();
 
-  const shortname = (name) => {
-    return name.length > 12 ? name.split(" ")[0] : name;
-  };
+    const toggleButton = toggleRef.current;
+    const onKey = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        if (toggleButton) toggleButton.focus();
+      }
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 900) setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [open]);
 
   return (
-    <div className={classes.navbarContainer}>
-      {/* Left Side: Header Name */}
-      <div className="navbar--container">
-        <h1 style={{ color: theme.secondary }}>{shortname(headerData.name)}</h1>
-      </div>
+    <header className={`site-header${scrolled || open ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <div className="container site-header__inner">
+        <Link to="/" className="wordmark" aria-label={`${site.name}, home`}>
+          <span className="wordmark__mark" aria-hidden="true">
+            SM<span className="wordmark__dot">.</span>
+          </span>
+          <span className="wordmark__name">{site.name}</span>
+        </Link>
 
-      {/* Center: Navigation Links */}
-      <div className={classes.navLinksContainer}>
-        <NavLink
-          to="/"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <IoHomeSharp className={classes.navIcon} /> Home
-        </NavLink>
-        <NavLink
-          to="/#about"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <FaUser className={classes.navIcon} /> About
-        </NavLink>
-        <NavLink
-          to="/#skills"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <FaTools className={classes.navIcon} /> Skills
-        </NavLink>
-        <NavLink
-          to="/#experience"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <PiSuitcaseSimpleFill className={classes.navIcon} /> Experience
-        </NavLink>
-        <NavLink
-          to="/#projects"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <BsFillGearFill className={classes.navIcon} /> Projects
-        </NavLink>
-        {/* <NavLink
-          to="/#resume"
-          className={classes.navItem}
-          onClick={(e) => {
-            e.preventDefault();
-            window.open(
-              "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
-              "_blank"
-            );
-          }}
-        >
-          <HiDocumentText className={classes.navIcon} /> Resume
-        </NavLink> */}
-        <NavLink
-          to="/#contacts"
-          className={classes.navItem}
-          smooth={true}
-          spy="true"
-          duration={2000}
-        >
-          <MdPhone className={classes.navIcon} /> Contact
-        </NavLink>
-      </div>
+        <nav className="site-nav" aria-label="Primary">
+          <ul className="site-nav__list" role="list">
+            {navLinks.map(({ id, label }) => (
+              <li key={id}>
+                <Link
+                  to={`/#${id}`}
+                  className="site-nav__link"
+                  aria-current={active === id ? 'true' : undefined}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* Right Side: Menu Icon for Small Screens */}
-      <IconButton className={classes.menuIcon} onClick={handleDrawerToggle}>
-        <FaBars />
-      </IconButton>
-
-      {/* Drawer for Small Screens */}
-      <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
-        <div className={classes.drawerLinks}>
-          <NavLink
-            to="/"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
+        <div className="site-header__actions">
+          <ThemeToggle />
+          {/* Goes to the Contact section rather than mailto:, which does nothing without a mail app. */}
+          <Link to="/#contact" className="btn btn--primary site-header__cta">
+            Get in touch
+          </Link>
+          <button
+            ref={toggleRef}
+            type="button"
+            className="menu-toggle"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((value) => !value)}
           >
-            <IoHomeSharp className={classes.navIcon} /> Home
-          </NavLink>
-          <NavLink
-            to="/#about"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
-          >
-            <FaUser className={classes.navIcon} /> About
-          </NavLink>
-          <NavLink
-            to="/#skills"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
-          >
-            <FaTools className={classes.navIcon} /> Skills
-          </NavLink>
-          <NavLink
-            to="/#experience"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
-          >
-            <PiSuitcaseSimpleFill className={classes.navIcon} /> Experience
-          </NavLink>
-          <NavLink
-            to="/#projects"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
-          >
-            <BsFillGearFill className={classes.navIcon} /> Projects
-          </NavLink>
-          {/* <NavLink
-            to="/#resume"
-            className={classes.drawerItem}
-            onClick={(e) => {
-              e.preventDefault();
-              window.open(
-                "https://drive.google.com/file/d/1WvSfTzAhzhILj5UqLfh9tVwW80hY4GFG/view?usp=sharing",
-                "_blank"
-              );
-            }}
-          >
-            <HiDocumentText className={classes.navIcon} /> Resume
-          </NavLink> */}
-          <NavLink
-            to="/#contacts"
-            className={classes.drawerItem}
-            onClick={handleDrawerToggle}
-          >
-            <MdPhone className={classes.navIcon} /> Contact
-          </NavLink>
+            {open ? <FiX aria-hidden="true" /> : <FiMenu aria-hidden="true" />}
+          </button>
         </div>
-      </Drawer>
-    </div>
+      </div>
+
+      <div id="mobile-menu" ref={panelRef} className={`mobile-menu${open ? ' is-open' : ''}`} hidden={!open}>
+        <nav aria-label="Mobile">
+          <ul role="list" className="mobile-menu__list">
+            {navLinks.map(({ id, label }, index) => (
+              <li key={id} style={{ '--i': index }}>
+                <Link to={`/#${id}`} className="mobile-menu__link" onClick={close}>
+                  <span className="mobile-menu__index" aria-hidden="true">
+                    0{index + 1}
+                  </span>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="mobile-menu__footer">
+          <Link to="/#contact" className="btn btn--primary" onClick={close}>
+            Get in touch
+          </Link>
+          <a className="btn btn--ghost" href={site.resume} target="_blank" rel="noopener noreferrer">
+            View Résumé
+            <span className="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </div>
+    </header>
   );
 }
 

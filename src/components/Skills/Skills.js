@@ -1,51 +1,45 @@
-import React, { useContext } from "react";
-import Marquee from "react-fast-marquee";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-import "./Skills.css";
-
-import { ThemeContext } from "../../contexts/ThemeContext";
-import { skillsData } from "../../data/skillsData";
-import { skillsImage } from "../../utils/skillsImage";
+import Reveal from '../Reveal/Reveal';
+import { skillGroups } from '../../data/skills';
+import './Skills.css';
 
 function Skills() {
-  const { theme } = useContext(ThemeContext);
-
-  const skillBoxStyle = {
-    backgroundColor: theme.primary,
-    boxShadow: `0px 0px 30px ${theme.primary30}`,
-  };
-
   return (
-    <div
-      id="skills"
-      className="skills"
-      style={{ backgroundColor: theme.secondary }}
-    >
-      <div className="skillsHeader">
-        <h2 style={{ color: theme.primary }}>Skills</h2>
-      </div>
-      <div className="skillsContainer">
-        <div className="skill--scroll">
-          <Marquee
-            gradient={false}
-            speed={80}
-            pauseOnHover={true}
-            pauseOnClick={true}
-            delay={0}
-            play={true}
-            direction="left"
-          >
-            {skillsData.map((skill, id) => (
-              <div className="skill--box" key={id} style={skillBoxStyle}>
-                <img src={skillsImage(skill)} alt={skill} />
-                <h3 style={{ color: "white" }}>{skill}</h3>
+    <section id="skills" className="section skills" aria-labelledby="skills-title" tabIndex={-1}>
+      <div className="container">
+        <Reveal className="section-head section-head--split">
+          <div>
+            <p className="eyebrow">Skills</p>
+            <h2 id="skills-title" className="section-title" style={{ marginTop: 'var(--space-4)' }}>
+              The toolkit, <em>grouped by use.</em>
+            </h2>
+          </div>
+          <p className="section-lede">
+            What I reach for day to day. The case studies and experience above show where each one was used.
+          </p>
+        </Reveal>
+
+        <div className="skills__grid">
+          {skillGroups.map((group, index) => (
+            <Reveal key={group.id} index={index % 2} className="skill-group">
+              <div className="skill-group__head">
+                <h3 className="skill-group__title">{group.title}</h3>
+                <p className="skill-group__note">{group.note}</p>
               </div>
-            ))}
-          </Marquee>
+              <ul className="skill-group__list" role="list">
+                {group.items.map(({ name, icon: Icon }) => (
+                  <li key={name} className="skill">
+                    {Icon ? <Icon className="skill__icon" aria-hidden="true" /> : <span className="skill__dot" aria-hidden="true" />}
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

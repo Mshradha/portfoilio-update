@@ -1,49 +1,33 @@
-import React, { useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
-import { ThemeContext } from "./contexts/ThemeContext";
-import { Main, BlogPage, ProjectPage } from "./pages";
-import { Experience, Skills } from "./components";
-import { Contacts } from "./components";
-import { BackToTop } from "./components";
-import ScrollToTop from "./utils/ScrollToTop";
-
-import "./App.css";
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
+import CaseStudy from './pages/CaseStudy/CaseStudy';
+import ScrollManager from './utils/ScrollManager';
 
 function App() {
-  const { theme } = useContext(ThemeContext);
-
-  console.log(
-    "%cDEVELOPER PORTFOLIO",
-    `color:${theme.primary}; font-size:50px`
-  );
-  console.log(
-    "%chttps://github.com/hhhrrrttt222111/developer-portfolio",
-    `color:${theme.tertiary}; font-size:20px`
-  );
-  // console.log = console.warn = console.error = () => {};
-
   return (
-    <div className="app">
-      <Router>
-        <ScrollToTop />
-        <Switch>
-          <Route path="/" exact component={Main} />
-          <Route path="/blog" exact component={BlogPage} />
-          <Route path="/projects" exact component={ProjectPage} />
-          <Route path="/skills" exact component={Skills} />
-          <Route path="/experience" exact component={Experience} />
-          <Route path="/contacts" exact component={Contacts} />
-          <Redirect to="/" />
-        </Switch>
-      </Router>
-      <BackToTop />
-    </div>
+    <Router>
+      <ScrollManager />
+      <div id="top" className="app">
+        <Navbar />
+        <main id="main" tabIndex={-1}>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/work/:slug" exact component={CaseStudy} />
+            {/* Old routes from the previous portfolio point at the matching section. */}
+            <Redirect from="/projects" to="/#work" />
+            <Redirect from="/experience" to="/#experience" />
+            <Redirect from="/skills" to="/#skills" />
+            <Redirect from="/contacts" to="/#contact" />
+            <Redirect to="/" />
+          </Switch>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

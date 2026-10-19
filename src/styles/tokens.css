@@ -1,0 +1,109 @@
+/*
+ * Design tokens. Components use only the semantic tokens below,
+ * so both themes stay in sync from this one file.
+ */
+
+:root {
+  /* Typography */
+  --font-display: 'DM Serif Display', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: clamp(1.15rem, 1.05rem + 0.4vw, 1.3rem);
+  --text-xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-2xl: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  --text-hero: clamp(2.6rem, 1.4rem + 4.6vw, 5.4rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --header-h: 68px;
+
+  /* Shape and motion */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 700ms;
+}
+
+/* Light theme (default) */
+:root,
+:root[data-theme='light'] {
+  --color-bg: #f8f5ef;
+  --color-surface: #fffdf9;
+  --color-surface-muted: #f1ede5;
+  --color-surface-strong: #e8e3d8;
+  --color-text: #191919;
+  --color-text-muted: #55524b;
+  --color-text-subtle: #6c685f;
+  --color-border: #e0d9cc;
+  --color-border-strong: #c7bdab;
+  --color-accent: #254ce8;
+  --color-accent-hover: #1a3bc4;
+  --color-accent-soft: rgba(37, 76, 232, 0.08);
+  --color-accent-line: rgba(37, 76, 232, 0.35);
+  --color-on-accent: #ffffff;
+  --color-header: rgba(248, 245, 239, 0.86);
+  --color-ink: #191919;
+  --color-on-ink: #f8f5ef;
+  --color-diagram-node: #fffdf9;
+  --shadow-card: 0 1px 0 rgba(25, 25, 25, 0.04), 0 12px 32px -18px rgba(25, 25, 25, 0.18);
+  --shadow-lift: 0 1px 0 rgba(25, 25, 25, 0.04), 0 22px 44px -22px rgba(25, 25, 25, 0.28);
+  --image-filter: none;
+  --color-feature-bg: #191919;
+  --color-feature-text: #f8f5ef;
+  --color-feature-muted: #bdb8ae;
+  --color-feature-accent: #9fb0ff;
+  --color-feature-border: rgba(248, 245, 239, 0.16);
+  color-scheme: light;
+}
+
+/* Dark theme: its own palette, not an inversion */
+:root[data-theme='dark'] {
+  --color-bg: #10131b;
+  --color-surface: #161a24;
+  --color-surface-muted: #1b2030;
+  --color-surface-strong: #242a3a;
+  --color-text: #f7f6f2;
+  --color-text-muted: #b9bcc8;
+  --color-text-subtle: #9195a3;
+  --color-border: #2a3041;
+  --color-border-strong: #3b4357;
+  --color-accent: #8da2ff;
+  --color-accent-hover: #aab9ff;
+  --color-accent-soft: rgba(141, 162, 255, 0.12);
+  --color-accent-line: rgba(141, 162, 255, 0.4);
+  --color-on-accent: #10131b;
+  --color-header: rgba(16, 19, 27, 0.82);
+  --color-ink: #f7f6f2;
+  --color-on-ink: #10131b;
+  --color-diagram-node: #1b2030;
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03), 0 14px 34px -20px rgba(0, 0, 0, 0.7);
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 48px -22px rgba(0, 0, 0, 0.85);
+  --image-filter: brightness(0.9) contrast(1.02);
+  --color-feature-bg: #1a2142;
+  --color-feature-text: #f7f6f2;
+  --color-feature-muted: #c0c5da;
+  --color-feature-accent: #b3c0ff;
+  --color-feature-border: rgba(247, 246, 242, 0.14);
+  color-scheme: dark;
+}
